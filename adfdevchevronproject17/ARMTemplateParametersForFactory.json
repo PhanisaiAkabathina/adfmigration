@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevchevronproject17"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"LS_SINK_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_SQLSERVER_ONPREMISE_password": {
+			"value": ""
+		},
+		"LS_SRC_EXCEL_accountKey": {
+			"value": ""
+		},
+		"LS_REST_API_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_SINK_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevsinkstorage17.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_ONPREMISE_properties_typeProperties_server": {
+			"value": "PHANI-SAI,1433"
+		},
+		"LS_SQLSERVER_ONPREMISE_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SQLSERVER_ONPREMISE_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_SRC_EXCEL_properties_typeProperties_url": {
+			"value": "https://adlsdevexcelsource17.dfs.core.windows.net/"
+		},
+		"event trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/458b5fb6-21e1-42ca-930e-7e879878426e/resourceGroups/rgdevchevronproject/providers/Microsoft.Storage/storageAccounts/adlsdevexcelsource17"
+		}
+	}
+}

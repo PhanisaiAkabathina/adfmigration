@@ -1,0 +1,139 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfdevchevronproject17"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"LS_SINK_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SINK_PARQUET'"
+		},
+		"LS_SQLSERVER_ONPREMISE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_ONPREMISE'"
+		},
+		"LS_SRC_EXCEL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SRC_EXCEL'"
+		},
+		"LS_REST_API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_SINK_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinkstorage17.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_ONPREMISE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "PHANI-SAI,1433"
+		},
+		"LS_SQLSERVER_ONPREMISE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQLSERVER_ONPREMISE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_SRC_EXCEL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevexcelsource17.dfs.core.windows.net/"
+		},
+		"event trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/458b5fb6-21e1-42ca-930e-7e879878426e/resourceGroups/rgdevchevronproject/providers/Microsoft.Storage/storageAccounts/adlsdevexcelsource17"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfdevchevronproject17_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"LS_SINK_PARQUET_accountKey": {
+						"value": "[parameters('LS_SINK_PARQUET_accountKey')]"
+					},
+					"LS_SRC_EXCEL_accountKey": {
+						"value": "[parameters('LS_SRC_EXCEL_accountKey')]"
+					},
+					"LS_SQLSERVER_ONPREMISE_password": {
+						"value": "[parameters('LS_SQLSERVER_ONPREMISE_password')]"
+					},
+					"LS_REST_API_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_API_properties_typeProperties_url')]"
+					},
+					"LS_SINK_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_SINK_PARQUET_properties_typeProperties_url')]"
+					},
+					"LS_SRC_EXCEL_properties_typeProperties_url": {
+						"value": "[parameters('LS_SRC_EXCEL_properties_typeProperties_url')]"
+					},
+					"LS_SQLSERVER_ONPREMISE_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_ONPREMISE_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_ONPREMISE_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_ONPREMISE_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_ONPREMISE_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_ONPREMISE_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfdevchevronproject17_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"event trigger_properties_typeProperties_scope": {
+						"value": "[parameters('event trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevchevronproject17_ArmTemplate_0')]"
+			]
+		}
+	]
+}
