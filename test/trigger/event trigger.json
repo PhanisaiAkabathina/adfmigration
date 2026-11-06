@@ -1,0 +1,24 @@
+{
+	"name": "event trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_COPY_ADLSCSV_ADLSPARQUET",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/inputcontainer/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/458b5fb6-21e1-42ca-930e-7e879878426e/resourceGroups/rgdevchevronproject/providers/Microsoft.Storage/storageAccounts/adlsdevexcelsource17",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

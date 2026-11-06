@@ -1,0 +1,19 @@
+{
+	"name": "DS_SINK_REST_API",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SINK_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "restapioutput"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

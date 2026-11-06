@@ -1,0 +1,17 @@
+{
+	"name": "SCH_SOURCE_CSV_TRIGGER",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-11-06T16:23:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
